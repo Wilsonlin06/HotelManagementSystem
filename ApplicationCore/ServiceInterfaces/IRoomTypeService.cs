@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApplicationCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,9 @@ namespace ApplicationCore.ServiceInterfaces
 {
     public interface IRoomTypeService
     {
+        Task<RoomType> AddRoomType(RoomType model);
+        Task<RoomType> DeleteRoomType(RoomType model);
+        Task<RoomType> UpdateRoomType(RoomType model);
+        Task<List<RoomType>> ListAllRoomTypes();
     }
 }

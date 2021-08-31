@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using ApplicationCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,13 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.RepositoryInterfaces
 {
-    public interface IRoomRepository : IAsyncRepository<Room>
+    public interface IRoomRepository : IAsyncRepository<RoomRequestModel>
     {
-        Task<IEnumerable<Room>> GetAvailableRooms();
-        Task<IEnumerable<Room>> GetAvailableRoomsByType(int TypeId);
-        Task<Room> BookingRoom(Room room);
+        Task<IEnumerable<RoomResponseModel>> ListAllRooms();
+        Task<IEnumerable<RoomResponseModel>> GetAvailableRooms();
+        Task<IEnumerable<RoomResponseModel>> GetAvailableRoomsByType(int TypeId);
+        Task<RoomResponseModel> AddRoom(RoomRequestModel model);
+        //Task<RoomResponseModel> UpdateRoom(RoomRequestModel model);
+        //Task<RoomRequestModel> DeleteRoom(Room)
     }
 }

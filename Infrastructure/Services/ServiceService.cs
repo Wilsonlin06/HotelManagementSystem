@@ -32,13 +32,13 @@ namespace Infrastructure.Services
             var entity = await _asyncRepository.UpdateAsync(model);
             return entity;
         }
-        public async Task<List<ServiceResponseModel>> ListAllServices()
+        public async Task<List<_Service>> ListAllServices()
         {
             var services = await _asyncRepository.ListAllAsync();
-            var serviceDetails = new List<ServiceResponseModel>();
+            var serviceDetails = new List<_Service>();
             foreach(var service in services)
             {
-                serviceDetails.Add(new ServiceResponseModel 
+                serviceDetails.Add(new _Service 
                 {
                     Id = service.Id,
                     SDesc = service.SDesc,

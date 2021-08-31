@@ -12,6 +12,5 @@ namespace ApplicationCore.Models
         public int RoomNo { get; set; }
         public int? RTCode { get; set; }
         public bool? Status { get; set; }
-        public RoomType RoomTypes { get; set; }
     }
 }

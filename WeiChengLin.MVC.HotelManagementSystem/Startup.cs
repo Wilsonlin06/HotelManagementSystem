@@ -35,7 +35,11 @@ namespace WeiChengLin.MVC.HotelManagementSystem
             services.AddScoped<IAsyncRepository<RoomType>, EfRepository<RoomType>>();
             services.AddScoped<IAsyncRepository<_Service>, EfRepository<_Service>>();
             services.AddScoped<IAsyncRepository<Customer>, EfRepository<Customer>>();
-            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IRoomRepository, RoomRepository>();
+            services.AddScoped<IRoomService, RoomService>();
+            services.AddScoped<IRoomTypeService, RoomTypeService>();
+            services.AddScoped<IServiceService, ServiceService>();
+            services.AddScoped<ICustomerService, CustomerService>();            
 
             services.AddDbContext<HMSDbContext>
                 (

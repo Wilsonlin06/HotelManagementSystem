@@ -32,13 +32,13 @@ namespace Infrastructure.Services
             var entity = await _asyncRepository.UpdateAsync(model);
             return entity;
         }
-        public async Task<List<RoomTypeResponseModel>> ListAllRoomTypes()
+        public async Task<List<RoomType>> ListAllRoomTypes()
         {
             var roomTypes = await _asyncRepository.ListAllAsync();
-            var roomTypeDetails = new List<RoomTypeResponseModel>();
+            var roomTypeDetails = new List<RoomType>();
             foreach (var type in roomTypes)
             {
-                roomTypeDetails.Add(new RoomTypeResponseModel
+                roomTypeDetails.Add(new RoomType
                 {
                     Id = type.Id,
                     RTDesc = type.RTDesc,

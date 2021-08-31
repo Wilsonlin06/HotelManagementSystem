@@ -10,8 +10,8 @@ namespace ApplicationCore.Models
     public class RoomResponseModel
     {
         public int RoomNo { get; set; }
-        public int RTCode { get; set; }
-        public bool Status { get; set; }
+        public int? RTCode { get; set; }
+        public bool? Status { get; set; }
         public RoomType RoomTypes { get; set; }
         public List<ServiceResponseModel> Services { get; set; }
     }
