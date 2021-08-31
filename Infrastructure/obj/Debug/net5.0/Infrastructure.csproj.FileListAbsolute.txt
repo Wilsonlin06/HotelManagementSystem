@@ -1,0 +1,15 @@
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\bin\Debug\net5.0\Infrastructure.deps.json
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\bin\Debug\net5.0\Infrastructure.dll
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\bin\Debug\net5.0\ref\Infrastructure.dll
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\bin\Debug\net5.0\Infrastructure.pdb
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\bin\Debug\net5.0\ApplicationCore.dll
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\bin\Debug\net5.0\ApplicationCore.pdb
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.AssemblyReference.cache
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\obj\Debug\net5.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CoreCompileInputs.cache
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CopyComplete
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb

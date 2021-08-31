@@ -1,6 +1,13 @@
+using ApplicationCore.Entities;
+using ApplicationCore.RepositoryInterfaces;
+using ApplicationCore.ServiceInterfaces;
+using Infrastructure.Data;
+using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +31,16 @@ namespace WeiChengLin.MVC.HotelManagementSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IAsyncRepository<Room>, EfRepository<Room>>();
+            services.AddScoped<IAsyncRepository<RoomType>, EfRepository<RoomType>>();
+            services.AddScoped<IAsyncRepository<_Service>, EfRepository<_Service>>();
+            services.AddScoped<IAsyncRepository<Customer>, EfRepository<Customer>>();
+            services.AddScoped<ICustomerService, CustomerService>();
+
+            services.AddDbContext<HMSDbContext>
+                (
+                    options => options.UseSqlServer(Configuration.GetConnectionString("HMSDbConnection"))
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

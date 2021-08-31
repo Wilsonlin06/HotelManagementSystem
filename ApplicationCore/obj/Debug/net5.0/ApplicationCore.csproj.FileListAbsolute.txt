@@ -1,0 +1,12 @@
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\bin\Debug\net5.0\ApplicationCore.deps.json
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\bin\Debug\net5.0\ApplicationCore.dll
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\bin\Debug\net5.0\ref\ApplicationCore.dll
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\bin\Debug\net5.0\ApplicationCore.pdb
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\obj\Debug\net5.0\ApplicationCore.csproj.AssemblyReference.cache
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\obj\Debug\net5.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\obj\Debug\net5.0\ApplicationCore.AssemblyInfoInputs.cache
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\obj\Debug\net5.0\ApplicationCore.AssemblyInfo.cs
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\obj\Debug\net5.0\ApplicationCore.csproj.CoreCompileInputs.cache
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\obj\Debug\net5.0\ApplicationCore.dll
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\obj\Debug\net5.0\ref\ApplicationCore.dll
+E:\HotelManagementSystemMVC\WeiChengLin.HotelManagementSystem\ApplicationCore\obj\Debug\net5.0\ApplicationCore.pdb

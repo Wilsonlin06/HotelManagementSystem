@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.ServiceInterfaces
 {
-    interface IBookingService
+    public interface IRoomTypeService
     {
     }
 }
