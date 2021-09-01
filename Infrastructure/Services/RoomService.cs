@@ -23,24 +23,11 @@ namespace Infrastructure.Services
         }
         public async Task<RoomResponseModel> AddRoom(RoomRequestModel model)
         {
-            // Find the RoomType and add into roomModel
-            //var types = await _rtAsyncRepository.ListAllAsync();
-            //var rType = new RoomType { };
-            //foreach(var type in types)
-            //{
-            //    if(type.Id == model.RTCode)
-            //    {
-            //        rType.Id = type.Id;
-            //        rType.Rent = type.Rent;
-            //        rType.RTDesc = type.RTDesc;
-            //    }
-            //}
             var roomModel = new Room
             {
                 Id = model.RoomNo,
                 RoomTypeId = model.RTCode,
-                Status = model.Status,
-                //RoomTypes = rType
+                Status = model.Status
             };
             var entity = await _asyncRepository.AddAsync(roomModel);
             if(entity != null)
@@ -100,6 +87,7 @@ namespace Infrastructure.Services
         public async Task<List<RoomResponseModel>> ListAllRooms()
         {
             var rooms = await _asyncRepository.ListAllAsync();
+            var services = await _sAsyncRepository.ListAllAsync();
             var roomList = new List<RoomResponseModel>();
             foreach(var room in rooms)
             {
@@ -107,15 +95,14 @@ namespace Infrastructure.Services
                 {
                     RoomNo = room.Id,
                     RTCode = room.RoomTypeId,
-                    RoomTypes = room.RoomTypes,
+                    RoomTypes = await _rtAsyncRepository.GetByIdAsync((int)room.RoomTypeId),
                     Status = room.Status
                 };
-                
-                if (room.Services == null) { }
-                else
+
+                newRoom.Services = new List<ServiceResponseModel>();
+                foreach (var service in services)
                 {
-                    newRoom.Services = new List<ServiceResponseModel>();
-                    foreach (var service in room.Services)
+                    if(service.RoomId == room.Id)
                     {
                         newRoom.Services.Add(new ServiceResponseModel
                         {
@@ -131,6 +118,40 @@ namespace Infrastructure.Services
                 roomList.Add(newRoom);
             }
             return roomList;
+        }
+
+        public async Task<RoomResponseModel> GetRoomById(int id)
+        {
+            var room = await _asyncRepository.GetByIdAsync(id);
+            var services = await _sAsyncRepository.ListAllAsync();
+            var type = await _rtAsyncRepository.GetByIdAsync((int)room.RoomTypeId);
+            var roomDetails = new RoomResponseModel
+            {
+                RoomNo = room.Id,
+                RTCode = room.RoomTypeId,
+                Status = room.Status,
+                RoomTypes = type
+            };
+            if(services != null)
+            {
+                roomDetails.Services = new List<ServiceResponseModel>();
+                foreach (var service in services)
+                {
+                    if(service.RoomId == room.Id)
+                    {
+                        roomDetails.Services.Add(new ServiceResponseModel
+                        {
+                            Id = service.Id,
+                            SDesc = service.SDesc,
+                            ServiceDate = service.ServiceDate,
+                            Amount = service.Amount,
+                            RoomId = service.RoomId,
+                            Rooms = service.Rooms
+                        });
+                    }
+                }
+            }
+            return roomDetails;
         }
     }
 }

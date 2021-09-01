@@ -19,7 +19,7 @@ namespace Infrastructure.Services
             _asyncRepository = asyncRepository;
             _rmAsyncRepository = rmAsyncRepository;
         }
-        public async Task<Customer> AddCustomer(CustomerRequestModel model)
+        public async Task<Customer> AddCustomer(Customer model)
         {
             var cModel = new Customer 
             {
@@ -31,11 +31,11 @@ namespace Infrastructure.Services
                 BookingDays = model.BookingDays,
                 Advance = model.Advance,
                 CheckIn = model.CheckIn,
-                TotlePERSONS = model.TotlePERSONS
+                TotalPERSONS = model.TotalPERSONS
             };
             var room = await _rmAsyncRepository.GetByIdAsync((int)model.RoomId);
             if (room.Status == false) return null;
-            var entity = await _asyncRepository.AddAsync(cModel);
+            var entity = await _asyncRepository.AddAsync(model);
             return entity;
         }
         public async Task<Customer> DeleteCustomer(CustomerRequestModel model)
@@ -50,7 +50,7 @@ namespace Infrastructure.Services
                 BookingDays = model.BookingDays,
                 Advance = model.Advance,
                 CheckIn = model.CheckIn,
-                TotlePERSONS = model.TotlePERSONS
+                TotalPERSONS = model.TotalPERSONS
             };
             var entity = await _asyncRepository.DeleteAsync(cModel);
             return entity;
@@ -67,32 +67,50 @@ namespace Infrastructure.Services
                 BookingDays = model.BookingDays,
                 Advance = model.Advance,
                 CheckIn = model.CheckIn,
-                TotlePERSONS = model.TotlePERSONS
+                TotalPERSONS = model.TotalPERSONS
             };
             var entity = await _asyncRepository.UpdateAsync(cModel);
             return entity;
         }
-        public async Task<List<Customer>> ListAllCustomers()
+        public async Task<List<CustomerResponseModel>> ListAllCustomers()
         {
             var customers = await _asyncRepository.ListAllAsync();
-            var customerDetails = new List<Customer>();
+            var customerDetails = new List<CustomerResponseModel>();
             foreach(var customer in customers)
-            {
-                customerDetails.Add(new Customer
+            {                
+                customerDetails.Add(new CustomerResponseModel
                 {
                     Id = customer.Id,
                     CName = customer.CName,
                     Address = customer.Address,
                     Phone = customer.Phone,
                     Email = customer.Email,
-                    RoomId = customer.RoomId,
+                    RoomNo = customer.RoomId,
                     BookingDays = customer.BookingDays,
                     CheckIn = customer.CheckIn,
-                    TotlePERSONS = customer.TotlePERSONS,
-                    Advance = customer.Advance,
-                    Rooms = customer.Rooms
+                    TotalPersons = customer.TotalPERSONS,
+                    Advance = customer.Advance
                 });
             }
+            return customerDetails;
+        }
+
+        public async Task<CustomerResponseModel> GetCustomerById(int id)
+        {
+            var customer = await _asyncRepository.GetByIdAsync(id);
+            var customerDetails = new CustomerResponseModel
+            {
+                Id = customer.Id,
+                CName = customer.CName,
+                Address = customer.Address,
+                Phone = customer.Phone,
+                Email = customer.Email,
+                RoomNo = customer.RoomId,
+                BookingDays = customer.BookingDays,
+                CheckIn = customer.CheckIn,
+                TotalPersons = customer.TotalPERSONS,
+                Advance = customer.Advance
+            };
             return customerDetails;
         }
     }

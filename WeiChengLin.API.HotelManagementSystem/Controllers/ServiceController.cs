@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using ApplicationCore.Models;
 using ApplicationCore.ServiceInterfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +22,7 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpPost]
         [Route("addservice")]
-        public async Task<IActionResult> AddRoom([FromBody] _Service model)
+        public async Task<IActionResult> AddRoom([FromBody] ServiceRequestModel model)
         {
             var entity = await _serviceService.AddService(model);
             if (entity == null)
@@ -33,7 +34,7 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpDelete]
         [Route("deleteservice")]
-        public async Task<IActionResult> DeleteRoom(_Service model)
+        public async Task<IActionResult> DeleteRoom(ServiceRequestModel model)
         {
             var entity = await _serviceService.DeleteService(model);
             if (entity == null)
@@ -45,7 +46,7 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpPut]
         [Route("updateservice")]
-        public async Task<IActionResult> UpdateRoom([FromBody] _Service model)
+        public async Task<IActionResult> UpdateRoom([FromBody] ServiceRequestModel model)
         {
             var entity = await _serviceService.UpdateService(model);
             if (entity == null)
@@ -59,12 +60,24 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
         [Route("allservice")]
         public async Task<IActionResult> GetAllServices()
         {
-            var rooms = await _serviceService.ListAllServices();
-            if (!rooms.Any())
+            var services = await _serviceService.ListAllServices();
+            if (!services.Any())
             {
                 return NotFound("No Services found");
             }
-            return Ok(rooms);
+            return Ok(services);
+        }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetServiceById(int id)
+        {
+            var service = await _serviceService.GetServiceById(id);
+            if (service == null)
+            {
+                return NotFound("The Service was not found");
+            }
+            return Ok(service);
         }
     }
 }

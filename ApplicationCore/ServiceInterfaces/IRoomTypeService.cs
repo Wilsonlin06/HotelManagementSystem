@@ -13,5 +13,6 @@ namespace ApplicationCore.ServiceInterfaces
         Task<RoomType> DeleteRoomType(RoomType model);
         Task<RoomType> UpdateRoomType(RoomType model);
         Task<List<RoomType>> ListAllRoomTypes();
+        Task<RoomType> GetTypeById(int id);
     }
 }

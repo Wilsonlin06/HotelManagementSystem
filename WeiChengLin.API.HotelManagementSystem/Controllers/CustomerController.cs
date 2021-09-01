@@ -22,7 +22,7 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpPost]
         [Route("addcustomer")]
-        public async Task<IActionResult> AddRoom([FromBody] CustomerRequestModel model)
+        public async Task<IActionResult> AddRoom([FromBody] Customer model)
         {
             var entity = await _customerService.AddCustomer(model);
             if (entity == null)
@@ -58,14 +58,26 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpGet]
         [Route("allcustomers")]
-        public async Task<IActionResult> GetAllRooms()
+        public async Task<IActionResult> GetAllCustomers()
         {
-            var rooms = await _customerService.ListAllCustomers();
-            if (!rooms.Any())
+            var customers = await _customerService.ListAllCustomers();
+            if (!customers.Any())
             {
                 return NotFound("No Customers found");
             }
-            return Ok(rooms);
+            return Ok(customers);
+        }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetCustomerById(int id)
+        {
+            var customer = await _customerService.GetCustomerById(id);
+            if (customer == null)
+            {
+                return NotFound("Customer was not found");
+            }
+            return Ok(customer);
         }
     }
 }

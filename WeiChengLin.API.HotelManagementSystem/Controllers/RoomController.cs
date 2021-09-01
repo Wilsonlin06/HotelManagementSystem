@@ -68,5 +68,17 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
             }
             return Ok(rooms);
         }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetRoomById(int id)
+        {
+            var room = await _roomService.GetRoomById(id);
+            if (room == null)
+            {
+                return NotFound("The room was not found");
+            }
+            return Ok(room);
+        }
     }
 }

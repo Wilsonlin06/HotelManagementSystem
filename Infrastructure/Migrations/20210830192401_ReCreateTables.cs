@@ -53,7 +53,7 @@ namespace Infrastructure.Migrations
                     PHONE = table.Column<string>(type: "varchar(20)", nullable: true),
                     EMAIL = table.Column<string>(type: "varchar(40)", nullable: true),
                     CHECKIN = table.Column<DateTime>(type: "datetime", nullable: true),
-                    TotlePERSONS = table.Column<int>(type: "int", nullable: true),
+                    TotalPERSONS = table.Column<int>(type: "int", nullable: true),
                     BookingDays = table.Column<int>(type: "int", nullable: true),
                     ADVANCE = table.Column<decimal>(type: "money", nullable: true)
                 },

@@ -1,0 +1,75 @@
+<h1 class="h1 text-center alert alert-primary">
+    Customer
+</h1>
+<div class="table-responsive text-nowrap mx-5 px-5">
+    <!--Table-->
+    <table class="table">
+        <!-- <table class="table table-striped w-auto d-flex justify-content-center" style="width: 500px;"> -->
+        <thead *ngIf="single">
+            <tr scope="row">
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Room No.</th>
+                <th scope="col">Room Type</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Check-in</th>
+                <th scope="col">TtlPersons</th>
+                <th scope="col">BookingDays</th>
+                <th scope="col">Advance</th>
+                <th scope="col">Services</th>
+            </tr>
+        </thead>
+        <thead *ngIf="!single">
+            <tr class="row">
+                <th class="col">ID</th>
+                <th class="col">Name</th>
+                <th class="col">Room No.</th>
+                <th class="col">Room Type</th>
+                <th class="col">Address</th>
+                <th class="col">Phone</th>
+                <th class="col">Email</th>
+                <th class="col">Check-in</th>
+                <th class="col">TtlPersons</th>
+                <th class="col">BookingDays</th>
+                <th class="col">Advance</th>
+                <th class="col">Services</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="single">
+                <tr>
+                    <th scope="row">{{customer.id}}</th>
+                    <td>{{customer.cName}}</td>
+                    <td><a [routerLink]="['/rooms/room/',customer.roomNo]">{{customer.roomNo}}</a></td>
+                    <td><a [routerLink]="['/rooms/roomtype/',room.rtCode]">{{roomType.rtDesc}}</a></td>
+                    <td>{{customer.address}}</td>
+                    <td>{{customer.phone}}</td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.checkIn | date}}</td>
+                    <td>{{customer.totalPersons}}</td>
+                    <td>{{customer.bookingDays}}</td>
+                    <td>{{customer.advance}}</td>
+                    <td><i *ngFor="let service of services">
+                            <li *ngIf="service.roomId == customer.roomNo"><a [routerLink]="['/rooms/service/',service.id]">{{service.sDesc}}</a></li>
+                        </i></td>
+                    <td><a routerLink="">Edit</a><span> / </span><a routerLink="">Delete</a></td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="!single">
+                <tr *ngFor="let customer of customers">
+                    <i *ngFor="let room of rooms">
+                        <i *ngIf="room.roomNo == customer.roomNo">
+                            <i *ngFor="let roomType of roomTypes">
+                                <i *ngIf="roomType.id == room.rtCode">
+                                    <app-customer-card [customer]='customer' [roomType]='roomType'
+                                        [services]='services'></app-customer-card>
+                                    <td><a routerLink="">Edit</a><span> / </span><a routerLink="">Delete</a></td>
+                                </i></i></i>
+                    </i>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

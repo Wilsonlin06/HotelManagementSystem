@@ -70,7 +70,7 @@ namespace Infrastructure.Migrations
                     EMAIL = table.Column<string>(type: "varchar(40)", nullable: true),
                     PHONE = table.Column<string>(type: "varchar(20)", nullable: true),
                     ROOMNO = table.Column<int>(type: "int", nullable: true),
-                    TotlePERSONS = table.Column<int>(type: "int", nullable: true)
+                    TotalPERSONS = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

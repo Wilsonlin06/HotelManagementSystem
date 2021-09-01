@@ -1,0 +1,18 @@
+
+<th scope="row" class="px-5">{{customer.id}}</th>
+<td class="px-5">{{customer.cName}}</td>
+<td class="px-5"><a [routerLink]="['/rooms/room/',customer.roomNo]">{{customer.roomNo}}</a></td>
+<td class="px-5"><a [routerLink]="['/rooms/roomtype/',roomType.id]">{{roomType.rtDesc}}</a></td>       
+<td class="px-5">{{customer.address}}</td>
+<td class="px-5">{{customer.phone}}</td>
+<td class="px-1">{{customer.email}}</td>
+<td class="px-5">{{customer.checkIn | date}}</td>
+<td class="px-5">{{customer.totalPersons}}</td>
+<td class="px-5">{{customer.bookingDays}}</td>
+<td class="px-5">{{customer.advance}}</td>
+<td class="px-5">
+    <ng-container
+     *ngFor="let service of services">
+        <li *ngIf="service.roomId == customer.roomNo">{{service.sDesc}}</li>
+    </ng-container>
+</td>

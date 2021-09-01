@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"
+    style="background-color: #46a3e6;">
+    <div class="container">
+        <a class="navbar-brand text-light" routerLink="/">Hotel Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav">
+                <ng-container>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light rounded-pill mx-2" [routerLink]="['rooms/room/0']">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light rounded-pill mx-1" [routerLink]="['rooms/service/0']">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light rounded-pill mx-2" [routerLink]="['rooms/customer/allcustomers']">Customers</a>
+                </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,20 @@
+<h1 class="h1 text-center alert alert-primary">
+    Dashboard
+</h1>
+<div class="container-fluid bg-light d-flex justify-content-center">
+    <div class="row">
+            <table class="table">
+                <thead>
+                  <tr class="row">
+                    <th class="col px-5">ID</th>
+                    <th class="col px-5">Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let customer of customers">
+                    <app-dashboard-card [customer]="customer"></app-dashboard-card>
+                  </tr>
+                </tbody>
+              </table>
+    </div>
+</div>

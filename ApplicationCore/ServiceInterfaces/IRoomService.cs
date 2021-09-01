@@ -14,5 +14,6 @@ namespace ApplicationCore.ServiceInterfaces
         Task<RoomRequestModel> DeleteRoom(RoomRequestModel model);
         Task<RoomRequestModel> UpdateRoom(RoomRequestModel model);
         Task<List<RoomResponseModel>> ListAllRooms();
+        Task<RoomResponseModel> GetRoomById(int id);
     }
 }

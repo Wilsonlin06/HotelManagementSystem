@@ -1,0 +1,62 @@
+<h1 class="h1 text-center alert alert-primary">
+    Room
+</h1>
+<div class="container-fluid bg-light">
+    <ng-container [ngSwitch]="room.rtCode" layout-align="center center">
+        <div class="row justify-content-md-center">
+            <div class="col col-md-auto">
+        <i *ngSwitchCase="1">
+            <img src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Junior_Suite_Corinthia_Lisbon-696x391.jpg"/>
+        </i>
+        <i *ngSwitchCase="2">
+            <img src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Deluxe_Suite_Gulf_Hotel_Bahrain-696x522.jpg"/>
+        </i>
+        <i *ngSwitchCase="3">
+            <img src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Executive_Suite_The_Ritz_Carlton_Hong_Kong-696x343.jpg"/>
+        </i>
+        <i *ngSwitchCase="4">
+            <img src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Prestige_Terrace_Suite_Sofitel_New_York-696x464.jpg"/>
+        </i>
+        <i *ngSwitchCase="5">
+            <img src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Penthouse_Suite_Mandarin_Oriental_Barcelona-696x464.jpg"/>
+        </i>
+        <i *ngSwitchCase="6">
+            <img src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Pool_Villa_Aleenta_Phuket-696x408.jpg"/>
+        </i>
+        <i *ngSwitchCase="7">
+            <img src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Presidential_Suite_Living_Mandarin_Oriental_New_York-696x464.jpg"/>
+        </i>
+        <i *ngSwitchCase="8">
+            <img src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Royal_Suite_Salon_Hotel_Imperial_Vienna-696x392.jpg"/>
+        </i>
+        </div></div>
+    </ng-container>
+
+    <div class="row justify-content-md-center">
+        <div class="col col-md-2">
+            <h5>Room No.: {{room.roomNo}}</h5>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col col-md-2">
+            <h5>Room Type: {{type.rtDesc}}</h5>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col col-md-2">
+            <h5>Rent: ${{type.rent}}</h5>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col col-md-2">
+            <h5>Status: <i *ngIf="room.status">Available</i> <i *ngIf="!room.status">Not Available</i></h5>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col col-md-2">
+            <h5>Services: <i *ngFor="let service of services"><i *ngIf="service.roomId == room.roomNo">
+                        <li>{{service.sDesc}}</li>
+                    </i></i></h5>
+        </div>
+    </div>
+</div>

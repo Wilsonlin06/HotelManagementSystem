@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApplicationCore.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -15,6 +16,6 @@ namespace ApplicationCore.Entities
         [Column("STATUS")]
         public bool? Status { get; set; }
         public RoomType RoomTypes { get; set; }
-        public ICollection<_Service> Services { get; set; }
+        public ICollection<ServiceResponseModel> Services { get; set; }
     }
 }

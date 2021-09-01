@@ -22,7 +22,7 @@ namespace ApplicationCore.Entities
         public string Email { get; set; }
         [Column("CHECKIN", TypeName = "datetime")]
         public DateTime? CheckIn { get; set; }
-        public int? TotlePERSONS { get; set; }
+        public int? TotalPERSONS { get; set; }
         public int? BookingDays { get; set; }
         [Column("ADVANCE", TypeName = "money")]    // Set the type as money for database
         public decimal? Advance { get; set; }

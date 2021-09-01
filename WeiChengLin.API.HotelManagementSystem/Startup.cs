@@ -65,6 +65,10 @@ namespace WeiChengLin.API.HotelManagementSystem
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WeiChengLin.API.HotelManagementSystem v1"));
             }
+            app.UseCors(builder => 
+            {
+                builder.WithOrigins(Configuration.GetValue<string>("clientSPAUrl")).AllowAnyHeader().AllowAnyMethod().AllowCredentials();               
+            });
 
             app.UseHttpsRedirection();
 

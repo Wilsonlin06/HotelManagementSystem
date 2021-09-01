@@ -16,9 +16,9 @@ namespace ApplicationCore.Models
         public string Phone { get; set; }
         public string Email { get; set; }
         public DateTime? CheckIn { get; set; }
-        public int? TotlePersons { get; set; }
+        public int? TotalPersons { get; set; }
         public int? BookingDays { get; set; }
         public decimal? Advance { get; set; }
-        public Room Rooms { get; set; }
+        //public Room Rooms { get; set; }
     }
 }

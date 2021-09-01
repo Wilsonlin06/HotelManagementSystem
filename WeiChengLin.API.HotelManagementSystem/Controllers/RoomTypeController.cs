@@ -57,15 +57,27 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
         }
 
         [HttpGet]
-        [Route("allrooms")]
+        [Route("alltypes")]
         public async Task<IActionResult> GetAllRooms()
         {
-            var rooms = await _roomTypeService.ListAllRoomTypes();
-            if (!rooms.Any())
+            var roomTypes = await _roomTypeService.ListAllRoomTypes();
+            if (!roomTypes.Any())
             {
                 return NotFound("No RoomType found");
             }
-            return Ok(rooms);
+            return Ok(roomTypes);
+        }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetTypeById(int id)
+        {
+            var type = await _roomTypeService.GetTypeById(id);
+            if (type == null)
+            {
+                return NotFound("The RoomType was not found");
+            }
+            return Ok(type);
         }
     }
 }

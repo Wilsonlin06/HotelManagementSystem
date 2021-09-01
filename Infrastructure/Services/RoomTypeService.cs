@@ -47,5 +47,11 @@ namespace Infrastructure.Services
             }
             return roomTypeDetails;
         }
+
+        public async Task<RoomType> GetTypeById(int id)
+        {
+            var roomType = await _asyncRepository.GetByIdAsync(id);
+            return roomType;
+        }
     }
 }

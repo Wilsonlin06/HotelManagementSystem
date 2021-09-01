@@ -59,7 +59,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasColumnName("ROOMNO");
 
-                    b.Property<int?>("TotlePERSONS")
+                    b.Property<int?>("TotalPERSONS")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
