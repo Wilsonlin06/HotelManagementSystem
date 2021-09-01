@@ -1,3 +1,27 @@
 <h1 class="h1 text-center alert alert-primary">
     Services
 </h1>
+<div class="container-fluid bg-light d-flex justify-content-center">
+    <div class="row">
+            <table class="table">
+                <thead>
+                  <tr class="row">
+                    <th class="col px-3">ID</th>
+                    <th class="col px-5">Description</th>
+                    <th class="col px-5">Room Number</th>
+                    <th class="col px-5">Fee</th>
+                    <th class="col px-5">Service Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="row" *ngFor="let service of services">
+                    <th class="col px-2">{{service.id}}</th>
+                    <th class="col px-5">{{service.sDesc}}</th>
+                    <th class="col px-5">{{service.roomId}}</th>
+                    <th class="col px-5">${{service.amount}}</th>
+                    <th class="col px-5">{{service.serviceDate}}</th>
+                  </tr>
+                </tbody>
+              </table>
+    </div>
+</div>
