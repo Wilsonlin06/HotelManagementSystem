@@ -16,6 +16,7 @@ export class CustomerComponent implements OnInit {
   customer!:customerDetails;
   customers!:customerDetails[];
   id!:number;
+  bill!:number;
   allcustomers!:string;
   room!:roomDetails;
   rooms!:roomDetails[];
@@ -66,6 +67,7 @@ export class CustomerComponent implements OnInit {
               this.roomTypeService.getTypeById(this.room.rtCode).subscribe(
                 rt => {
                   this.roomType = rt;
+                  this.bill = rt.rent - this.customer.advance;
                 }
               );
             }
@@ -85,5 +87,8 @@ export class CustomerComponent implements OnInit {
     this.enableEdit = true;
     this.enableEditIndex = i;
     console.log(i, e);
+  }
+  addBill(amount:number){
+    this.bill += amount;
   }
 }

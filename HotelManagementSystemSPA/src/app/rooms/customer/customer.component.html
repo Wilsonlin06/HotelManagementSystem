@@ -19,6 +19,7 @@
                 <th scope="col">BookingDays</th>
                 <th scope="col">Advance</th>
                 <th scope="col">Services</th>
+                <th scope="col">Total Bill</th>
             </tr>
         </thead>
         <thead *ngIf="!single">
@@ -35,6 +36,7 @@
                 <th class="col">BookingDays</th>
                 <th class="col">Advance</th>
                 <th class="col">Services</th>
+                <th class="col">Total Bill</th>
             </tr>
         </thead>
         <tbody>
@@ -50,10 +52,11 @@
                     <td>{{customer.checkIn | date}}</td>
                     <td>{{customer.totalPersons}}</td>
                     <td>{{customer.bookingDays}}</td>
-                    <td>{{customer.advance}}</td>
+                    <td>${{customer.advance}}</td>
                     <td><i *ngFor="let service of services">
-                            <li *ngIf="service.roomId == customer.roomNo"><a [routerLink]="['/rooms/service/',service.id]">{{service.sDesc}}</a></li>
+                            <li *ngIf="service.roomId == customer.roomNo"><a [routerLink]="['/rooms/service/',service.id]">{{service.sDesc}}{{addBill(service.amount)}}</a></li>
                         </i></td>
+                    <td>${{bill}}</td>
                     <td><a routerLink="">Edit</a><span> / </span><a routerLink="">Delete</a></td>
                 </tr>
             </ng-container>

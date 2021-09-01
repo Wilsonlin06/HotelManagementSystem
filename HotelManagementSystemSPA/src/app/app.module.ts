@@ -12,6 +12,7 @@ import { ServiceComponent } from './rooms/service/service.component';
 import { CustomerComponent } from './rooms/customer/customer.component';
 import { DashboardCardComponent } from './shared/components/dashboard-card/dashboard-card.component';
 import { CustomerCardComponent } from './shared/components/customer-card/customer-card.component';
+import { RoomCardComponent } from './shared/components/room-card/room-card.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CustomerCardComponent } from './shared/components/customer-card/custome
     CustomerComponent,
     DashboardCardComponent,
     CustomerCardComponent,
+    RoomCardComponent,
   ],
   imports: [
     BrowserModule,
