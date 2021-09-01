@@ -1,5 +1,5 @@
 <div class="card mb-4">
-    <a [routerLink]="[ '/rooms', room.roomNo]" [ngSwitch]="room.rtCode">        
+    <a [routerLink]="[ '/rooms/room/', room.roomNo]" [ngSwitch]="room.rtCode">        
         <i *ngSwitchCase="1">
             <img
                 src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Junior_Suite_Corinthia_Lisbon-696x391.jpg" class="img-fluid"/>
@@ -33,6 +33,8 @@
                 src="https://bookyourluxuryhotelsuite.com/wp-content/uploads/2018/12/Royal_Suite_Salon_Hotel_Imperial_Vienna-696x392.jpg" class="img-fluid"/>
         </i>
     </a>
-    <div class="row">Room Number: {{room.roomNo}}</div>
-    <div class="row">Room Type: {{roomType.rtDesc}}</div>
+    <div class="row" style="font-weight: bold; align-self: center;">Room Number: {{room.roomNo}}</div>
+    <div class="row" style="font-weight: bold; align-self: center;">Room Type: {{roomType.rtDesc}}</div>
+    <div class="row" style="font-weight: bold; align-self: center;" *ngIf="room.status">Status: Available</div>
+    <div class="row" style="font-weight: bold; align-self: center;" *ngIf="!room.status">Status: Not Available</div>
 </div>

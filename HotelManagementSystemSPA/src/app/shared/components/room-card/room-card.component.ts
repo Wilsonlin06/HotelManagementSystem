@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RoomtypeService } from 'src/app/core/services/roomtype.service';
 import { roomDetails, roomtypeDetails } from '../../models/details';
 
 @Component({
@@ -9,9 +10,14 @@ import { roomDetails, roomtypeDetails } from '../../models/details';
 export class RoomCardComponent implements OnInit {
   @Input() room!: roomDetails;
   @Input() roomType!: roomtypeDetails;
-  constructor() { }
+  constructor(private roomtypeService: RoomtypeService) { }
 
   ngOnInit(): void {
+    this.roomtypeService.getTypeById(this.room.rtCode).subscribe(
+      rt => {
+        this.roomType = rt;
+      }
+    );
   }
 
 }

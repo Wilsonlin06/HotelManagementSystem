@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { RoomService } from 'src/app/core/services/room.service';
 import { RoomtypeService } from 'src/app/core/services/roomtype.service';
 import { ServiceService } from 'src/app/core/services/service.service';
@@ -44,7 +45,6 @@ export class RoomComponent implements OnInit {
           this.roomService.getAllRooms().subscribe(
             r => {
               this.rooms = r;
-              console.log(r);
             }
           );
         }
@@ -59,11 +59,15 @@ export class RoomComponent implements OnInit {
   addBill(amount:number){
     this.bill += amount;
   }
-  getType(id:number){
-    this.roomtypeService.getTypeById(id).subscribe(
-      t =>{
-        this.type = t;
-      }
-    );
-  }
+  // getType(id:number){
+  //   this.roomtypeService.getTypeById(id).subscribe(
+  //     t => {
+  //       this.type2 = t;
+  //     }
+  //   );
+  //   // return this.roomtypeService.getTypeById(id)
+  //   // .pipe(map(
+  //   //   resp => resp as roomtypeDetails
+  //   // ));
+  // }
 }
