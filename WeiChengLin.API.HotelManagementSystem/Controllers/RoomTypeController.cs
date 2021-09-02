@@ -33,7 +33,7 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteroomtype")]
+        [Route("delete/{id:int}")]
         public async Task<IActionResult> DeleteRoomType(int id)
         {
             var entity = await _roomTypeService.DeleteRoomType(id);
