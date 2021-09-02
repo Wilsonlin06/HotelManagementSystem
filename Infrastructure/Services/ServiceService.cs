@@ -40,6 +40,7 @@ namespace Infrastructure.Services
         {
             var sModel = new _Service
             {
+                Id = model.Id,
                 SDesc = model.SDesc,
                 ServiceDate = model.ServiceDate,
                 Amount = model.Amount,

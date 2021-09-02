@@ -57,7 +57,7 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
         }
 
         [HttpGet]
-        [Route("allservice")]
+        [Route("allservices")]
         public async Task<IActionResult> GetAllServices()
         {
             var services = await _serviceService.ListAllServices();
