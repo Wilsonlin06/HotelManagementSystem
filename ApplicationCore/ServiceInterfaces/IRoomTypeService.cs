@@ -10,7 +10,7 @@ namespace ApplicationCore.ServiceInterfaces
     public interface IRoomTypeService
     {
         Task<RoomType> AddRoomType(RoomType model);
-        Task<RoomType> DeleteRoomType(RoomType model);
+        Task<RoomType> DeleteRoomType(int id);
         Task<RoomType> UpdateRoomType(RoomType model);
         Task<List<RoomType>> ListAllRoomTypes();
         Task<RoomType> GetTypeById(int id);

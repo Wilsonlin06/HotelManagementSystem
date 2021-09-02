@@ -19,7 +19,7 @@ namespace Infrastructure.Services
             _asyncRepository = asyncRepository;
             _rmAsyncRepository = rmAsyncRepository;
         }
-        public async Task<Customer> AddCustomer(Customer model)
+        public async Task<CustomerResponseModel> AddCustomer(CustomerRequestModel model)
         {
             var cModel = new Customer 
             {
@@ -35,30 +35,32 @@ namespace Infrastructure.Services
             };
             var room = await _rmAsyncRepository.GetByIdAsync((int)model.RoomId);
             if (room.Status == false) return null;
-            var entity = await _asyncRepository.AddAsync(model);
-            return entity;
-        }
-        public async Task<Customer> DeleteCustomer(CustomerRequestModel model)
-        {
-            var cModel = new Customer
+            var entity = await _asyncRepository.AddAsync(cModel);
+            var customer = new CustomerResponseModel
             {
-                RoomId = model.RoomId,
-                CName = model.CName,
-                Address = model.Address,
-                Phone = model.Phone,
-                Email = model.Email,
-                BookingDays = model.BookingDays,
-                Advance = model.Advance,
-                CheckIn = model.CheckIn,
-                TotalPERSONS = model.TotalPERSONS
+                Id = entity.Id,
+                CName = entity.CName,
+                Address = entity.Address,
+                Phone = entity.Phone,
+                Email = entity.Email,
+                RoomNo = entity.RoomId,
+                BookingDays = entity.BookingDays,
+                TotalPersons = entity.TotalPERSONS,
+                CheckIn = entity.CheckIn,
+                Advance = entity.Advance
             };
-            var entity = await _asyncRepository.DeleteAsync(cModel);
-            return entity;
+            return customer;
         }
-        public async Task<Customer> UpdateCustomer(CustomerRequestModel model)
+        public async Task<Customer> DeleteCustomer(int id)
+        {
+            var customer = await _asyncRepository.DeleteByIdAsync(id);
+            return customer;
+        }
+        public async Task<CustomerResponseModel> UpdateCustomer(CustomerRequestModel model)
         {
             var cModel = new Customer
             {
+                Id = model.id,
                 RoomId = model.RoomId,
                 CName = model.CName,
                 Address = model.Address,
@@ -70,7 +72,20 @@ namespace Infrastructure.Services
                 TotalPERSONS = model.TotalPERSONS
             };
             var entity = await _asyncRepository.UpdateAsync(cModel);
-            return entity;
+            var customer = new CustomerResponseModel
+            {
+                Id = entity.Id,
+                CName = entity.CName,
+                Address = entity.Address,
+                Phone = entity.Phone,
+                Email = entity.Email,
+                RoomNo = entity.RoomId,
+                BookingDays = entity.BookingDays,
+                TotalPersons = entity.TotalPERSONS,
+                CheckIn = entity.CheckIn,
+                Advance = entity.Advance
+            };
+            return customer;
         }
         public async Task<List<CustomerResponseModel>> ListAllCustomers()
         {

@@ -8,6 +8,7 @@ namespace ApplicationCore.Models
 {
     public class CustomerRequestModel
     {
+        public int id { get; set; }
         public int? RoomId { get; set; }
         public string CName { get; set; }
         public string Address { get; set; }

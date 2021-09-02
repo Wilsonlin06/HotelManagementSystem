@@ -60,17 +60,10 @@ namespace Infrastructure.Services
             }
             return null;
         }
-        public async Task<RoomRequestModel> DeleteRoom(RoomRequestModel model)
+        public async Task<Room> DeleteRoom(int id)
         {
-            var roomModel = new Room
-            {
-                Id = model.RoomNo,
-                RoomTypeId = model.RTCode,
-                Status = model.Status
-            };
-            var entity = await _asyncRepository.DeleteAsync(roomModel);
-            if(entity != null) return model;
-            return null;
+            var room = await _asyncRepository.DeleteByIdAsync(id);
+            return room;
         }
         public async Task<RoomRequestModel> UpdateRoom(RoomRequestModel model)
         {

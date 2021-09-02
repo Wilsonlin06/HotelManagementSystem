@@ -34,9 +34,9 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpDelete]
         [Route("deleteroomtype")]
-        public async Task<IActionResult> DeleteRoomType(RoomType model)
+        public async Task<IActionResult> DeleteRoomType(int id)
         {
-            var entity = await _roomTypeService.DeleteRoomType(model);
+            var entity = await _roomTypeService.DeleteRoomType(id);
             if(entity == null)
             {
                 return BadRequest("The RoomType was not found");

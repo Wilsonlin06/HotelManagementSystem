@@ -11,7 +11,7 @@ namespace ApplicationCore.ServiceInterfaces
     public interface IRoomService
     {
         Task<RoomResponseModel> AddRoom(RoomRequestModel model);
-        Task<RoomRequestModel> DeleteRoom(RoomRequestModel model);
+        Task<Room> DeleteRoom(int id);
         Task<RoomRequestModel> UpdateRoom(RoomRequestModel model);
         Task<List<RoomResponseModel>> ListAllRooms();
         Task<RoomResponseModel> GetRoomById(int id);

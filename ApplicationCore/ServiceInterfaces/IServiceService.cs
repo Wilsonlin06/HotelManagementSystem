@@ -11,7 +11,7 @@ namespace ApplicationCore.ServiceInterfaces
     public interface IServiceService
     {
         Task<_Service> AddService(ServiceRequestModel model);
-        Task<_Service> DeleteService(ServiceRequestModel model);
+        Task<_Service> DeleteService(int id);
         Task<_Service> UpdateService(ServiceRequestModel model);
         Task<List<_Service>> ListAllServices();
         Task<_Service> GetServiceById(int id);

@@ -31,17 +31,10 @@ namespace Infrastructure.Services
             var entity = await _asyncRepository.AddAsync(sModel);
             return entity;
         }
-        public async Task<_Service> DeleteService(ServiceRequestModel model)
+        public async Task<_Service> DeleteService(int id)
         {
-            var sModel = new _Service
-            {
-                SDesc = model.SDesc,
-                ServiceDate = model.ServiceDate,
-                Amount = model.Amount,
-                RoomId = model.RoomId
-            };
-            var entity = await _asyncRepository.DeleteAsync(sModel);
-            return entity;
+            var service = await _asyncRepository.DeleteByIdAsync(id);
+            return service;
         }
         public async Task<_Service> UpdateService(ServiceRequestModel model)
         {

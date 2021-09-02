@@ -34,9 +34,9 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpDelete]
         [Route("deleteservice")]
-        public async Task<IActionResult> DeleteRoom(ServiceRequestModel model)
+        public async Task<IActionResult> DeleteRoom(int id)
         {
-            var entity = await _serviceService.DeleteService(model);
+            var entity = await _serviceService.DeleteService(id);
             if (entity == null)
             {
                 return BadRequest("No Service was found, or some inputs are incorrect");

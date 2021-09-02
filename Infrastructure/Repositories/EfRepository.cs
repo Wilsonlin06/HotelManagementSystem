@@ -30,6 +30,14 @@ namespace Infrastructure.Repositories
             return entity;
         }
 
+        public async Task<T> DeleteByIdAsync(int id)
+        {
+            var entity = await _dbContext.Set<T>().FindAsync(id);
+            _dbContext.Set<T>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
+        }
+
         public virtual async Task<T> GetByIdAsync(int id)
         {
             var entity = await _dbContext.Set<T>().FindAsync(id);

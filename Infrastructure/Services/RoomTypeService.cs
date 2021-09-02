@@ -22,9 +22,9 @@ namespace Infrastructure.Services
             var entity = await _asyncRepository.AddAsync(model);
             return entity;
         }
-        public async Task<RoomType> DeleteRoomType(RoomType model)
+        public async Task<RoomType> DeleteRoomType(int id)
         {
-            var entity = await _asyncRepository.DeleteAsync(model);
+            var entity = await _asyncRepository.DeleteByIdAsync(id);
             return entity;
         }
         public async Task<RoomType> UpdateRoomType(RoomType model)

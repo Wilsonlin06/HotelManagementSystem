@@ -22,7 +22,7 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpPost]
         [Route("addcustomer")]
-        public async Task<IActionResult> AddRoom([FromBody] Customer model)
+        public async Task<IActionResult> AddCustomer([FromBody] CustomerRequestModel model)
         {
             var entity = await _customerService.AddCustomer(model);
             if (entity == null)
@@ -34,9 +34,9 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpDelete]
         [Route("deletecustomer")]
-        public async Task<IActionResult> DeleteRoom(CustomerRequestModel model)
+        public async Task<IActionResult> DeleteCustomer(int id)
         {
-            var entity = await _customerService.DeleteCustomer(model);
+            var entity = await _customerService.DeleteCustomer(id);
             if (entity == null)
             {
                 return BadRequest("No Customer was found, or some inputs are incorrect");
@@ -46,7 +46,7 @@ namespace WeiChengLin.API.HotelManagementSystem.Controllers
 
         [HttpPut]
         [Route("updatecustomer")]
-        public async Task<IActionResult> UpdateRoom([FromBody] CustomerRequestModel model)
+        public async Task<IActionResult> UpdateCustomer([FromBody] CustomerRequestModel model)
         {
             var entity = await _customerService.UpdateCustomer(model);
             if (entity == null)
