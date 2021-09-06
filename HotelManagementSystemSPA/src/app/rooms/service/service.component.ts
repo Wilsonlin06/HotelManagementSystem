@@ -15,6 +15,7 @@ export class ServiceComponent implements OnInit {
     this.serviceService.getAllServices().subscribe(
       s => {
         this.services = s;
+        console.table(s);
       }
     );
   }

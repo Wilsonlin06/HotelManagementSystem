@@ -13,7 +13,7 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
 
   getAllServices(): Observable<serviceDetails[]> {
-    return this.http.get(`${environment.apiUrl}` + "Service/allservice")
+    return this.http.get(`${environment.apiUrl}` + "Service/allservices")
       .pipe(map(
         resp => resp as serviceDetails[]
       ));
